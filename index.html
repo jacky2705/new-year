@@ -43,30 +43,50 @@
   padding-right: 10px;
   border-radius: 5px;
 }
+.background2 {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.425);
+  padding-left: 10px ;
+  padding-right: 10px;
+  border-radius: 5px;
+}
 .tampung {
 	background: linear-gradient(rgba(0, 0, 0, 0.199), rgba(0, 0, 0, 0.322)) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #ffffff41, #f73c3c4d) border-box;
  
 }
 #myVideo {
     position: fixed;
+    display: block;
     right: 0;
     bottom: 0;
     min-width: 100vw; 
     min-height: 20vw;
     filter: brightness(50%);
-    z-index: -1;
+    z-index: -2;
     animation: fadeIn 5s;
 
 }
+#myVideo2 {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 80%; 
+    min-height: 80%;
+    filter: contrast(1.45);
+    opacity: 0;
+    filter: brightness(80%);
+    z-index: 0;
+    animation: fadeIn 2s;
+
+}
 .leaf {
-  z-index: 0;
+  z-index: -1;
   position:fixed;
   align-items:center;
   bottom: -10%;
   left: -10;
   filter: brightness(20%);
   animation: fadeIn 5s;
-  animation: shake 30s;
+  animation: shake 25s;
   animation-iteration-count: infinite;
 }
 .border {
@@ -75,9 +95,12 @@
 #lur {
   font-size: 6vw;
   margin: auto;
+  z-index: 1;
   display: block;
   scale: 0;
   transition: 1.5s;
+  animation: shake 20s;
+  animation-iteration-count: infinite;
 
 }
 .Text-big {
@@ -97,29 +120,30 @@ a {
 }
 .leaves{  
   right: 100px;
-  z-index: 0;
+  z-index: -1;
   position: fixed;
   display: flex;
   bottom: -4%;
   filter: brightness(40%);
   scale: 1.25;
   animation: fadeIn 5s;
-  animation: shake 40s;
+  animation: shake 35s;
   animation-iteration-count: infinite;
 
 }
 .leaves-top{  
-  z-index: 0;
+  z-index: -1;
     position: fixed;
   display: flex;
   left: 0;
   filter: brightness(40%);
   scale: 1.5;
   animation: fadeIn 5s;
-  animation: shake 40s;
+  animation: shake 35s;
   animation-iteration-count: infinite;
 
 }
+
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
@@ -145,10 +169,18 @@ a {
 </head>
 <body>
   <div class="video">
-<video autoplay muted loop id="myVideo" class="video1">
+<video autoplay muted loop id="myVideo" class="video">
   <source src="dinosaurus.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
+<video autoplay muted loop id="myVideo2" class="video">
+  <source src="fireworks-video.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+<audio autoplay >
+  <source src="fireworks-sound.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
 </div>
 <div class="leaf">
   <img src="border-leaf.png" alt="leaf" class="border">
@@ -160,7 +192,9 @@ a {
   <img src="leaves-top.png" alt="leaves-top">
 </div>
 
-<div class="text-box"> <div class="background">
+
+<div class="text-box"> <div class="background2"><p id="lur">Happy <span class="auto-type"></span></p></div>
+  <div class="background">
   <ul class="ul">
    
 <li id="demo" class="Text-big"></li>
@@ -172,11 +206,13 @@ a {
 <li id="demo3" class="Text-big"></li>
 <li id="tgl3">Detik</li>
 </ul>
-<p id="lur"></p>
+
 </div></div>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Dec 31, 2022  10:01:00").getTime();
+var countDownDate = new Date("Dec 29, 2022  01:14:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -202,7 +238,13 @@ var x = setInterval(function() {
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("lur").innerHTML = "Happy New Year!";
+    var typed = new Typed(".auto-type", {
+        strings: ["New Year 2022!", "New Year 2023!"],
+        typeSpeed: 150,
+        backSpeed: 50,
+        loop: true 
+      })
+    //document.getElementById("lur").innerHTML = "Happy New Year!";
     document.getElementById("tgl").style.display = "none";
     document.getElementById("tgl1").style.display = "none";
     document.getElementById("tgl2").style.display = "none";
@@ -212,9 +254,17 @@ var x = setInterval(function() {
     document.getElementById("demo2").style.display = "none";
     document.getElementById("demo3").style.display = "none";
     document.getElementById("lur").style.scale = "1";
-    document.getElementsByClassName("first").style.opacity = "0";
+    document.getElementById("myVideo").style.visibility = "none";
+    //video fireworks
+    document.getElementById("myVideo2").style.opacity = "1";
+    document.getElementById("myVideo2").style.display = "block";
+    document.createElement("sour")
 
-  };
+
+  }
+  else {
+    document.getElementById("myVideo2").style.display = "none";
+  }
 }, 0);
 
 
