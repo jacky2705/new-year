@@ -43,11 +43,12 @@
   padding-right: 10px;
   border-radius: 5px;
 }
-.background2 {
+#background2 {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.425);
   padding-left: 10px ;
   padding-right: 10px;
   border-radius: 5px;
+  scale: 0;
 }
 .tampung {
 	background: linear-gradient(rgba(0, 0, 0, 0.199), rgba(0, 0, 0, 0.322)) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #ffffff41, #f73c3c4d) border-box;
@@ -97,7 +98,6 @@
   margin: auto;
   z-index: 1;
   display: block;
-  scale: 0;
   transition: 1.5s;
   animation: shake 20s;
   animation-iteration-count: infinite;
@@ -177,10 +177,7 @@ a {
   <source src="fireworks-video.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
-<audio autoplay >
-  <source src="fireworks-sound.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
+
 </div>
 <div class="leaf">
   <img src="border-leaf.png" alt="leaf" class="border">
@@ -193,7 +190,10 @@ a {
 </div>
 
 
-<div class="text-box"> <div class="background2"><p id="lur">Happy <span class="auto-type"></span></p></div>
+<div class="text-box">
+   <div id="background2" style="display: none;">
+    <p id="lur">Happy <span class="auto-type"></span></p>
+  </div>
   <div class="background">
   <ul class="ul">
    
@@ -212,7 +212,7 @@ a {
 
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Dec 29, 2022  01:14:00").getTime();
+var countDownDate = new Date("Dec 29, 2022  01:39:20").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -253,17 +253,21 @@ var x = setInterval(function() {
     document.getElementById("demo1").style.display = "none";
     document.getElementById("demo2").style.display = "none";
     document.getElementById("demo3").style.display = "none";
-    document.getElementById("lur").style.scale = "1";
+    document.getElementById("background2").style.scale = "1";
     document.getElementById("myVideo").style.visibility = "none";
     //video fireworks
     document.getElementById("myVideo2").style.opacity = "1";
     document.getElementById("myVideo2").style.display = "block";
-    document.createElement("sour")
+    document.getElementById("background2").style.display = "block";
+
+    
 
 
   }
   else {
     document.getElementById("myVideo2").style.display = "none";
+      document.getElementByClassName("auto-type").style.display = "none"
+
   }
 }, 0);
 
