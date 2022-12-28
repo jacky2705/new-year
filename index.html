@@ -16,7 +16,7 @@
     .text-box {
 	--x: 50%;
 	--y: 50%;
-	top: 30%;
+	top: 40%;
 	position: absolute;
   margin: auto;
   filter: brightness(120%);
@@ -62,13 +62,15 @@
   z-index: 0;
   position:fixed;
   align-items:center;
-  display: flex;
-  bottom: -5%;
-  left: -7%;
+  bottom: -10%;
+  left: -10;
   filter: brightness(20%);
   animation: fadeIn 5s;
   animation: shake 30s;
   animation-iteration-count: infinite;
+}
+.border {
+  min-height: screen;
 }
 #lur {
   font-size: 6vw;
@@ -94,13 +96,25 @@ a {
   display: block;
 }
 .leaves{  
-  
+  right: 100px;
   z-index: 0;
   position: fixed;
   display: flex;
   bottom: -4%;
   filter: brightness(40%);
   scale: 1.25;
+  animation: fadeIn 5s;
+  animation: shake 40s;
+  animation-iteration-count: infinite;
+
+}
+.leaves-top{  
+  z-index: 0;
+    position: fixed;
+  display: flex;
+  left: 0;
+  filter: brightness(40%);
+  scale: 1.5;
   animation: fadeIn 5s;
   animation: shake 40s;
   animation-iteration-count: infinite;
@@ -137,10 +151,13 @@ a {
 </video>
 </div>
 <div class="leaf">
-  <img src="border-leaf.png" alt="leaf">
+  <img src="border-leaf.png" alt="leaf" class="border">
 </div>
 <div class="leaves">
   <img src="leaves.png" alt="leaves">
+</div>
+<div class="leaves-top">
+  <img src="leaves-top.png" alt="leaves-top">
 </div>
 
 <div class="text-box"> <div class="background">
