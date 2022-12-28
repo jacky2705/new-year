@@ -19,9 +19,10 @@
 	top: 30%;
 	position: absolute;
   margin: auto;
+  filter: brightness(120%);
 	appearance: none;
 	text-transform: uppercase;
-  font-size: 4vw;
+  font-size: 3.5vw;
 	outline: none;
 	border-radius: 5px;
 	border: 2px solid transparent;
@@ -30,8 +31,8 @@
   animation: fadeIn 5s;
   
 }
-p {
-  background: -webkit-linear-gradient(rgb(255, 55, 55), rgb(255, 255, 255));
+.ul, #lur {
+  background: -webkit-linear-gradient(rgb(255, 28, 28), rgb(255, 255, 255));
   
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -43,7 +44,7 @@ p {
   border-radius: 5px;
 }
 .tampung {
-	background: linear-gradient(rgba(0, 0, 0, 0.199), rgba(0, 0, 0, 0.322)) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #00c9a741, #845ec24d) border-box;
+	background: linear-gradient(rgba(0, 0, 0, 0.199), rgba(0, 0, 0, 0.322)) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #ffffff41, #f73c3c4d) border-box;
  
 }
 #myVideo {
@@ -64,19 +65,33 @@ p {
   display: flex;
   bottom: -5%;
   left: -7%;
-  filter: brightness(10%);
+  filter: brightness(20%);
   animation: fadeIn 5s;
-  animation: shake 25s;
+  animation: shake 30s;
   animation-iteration-count: infinite;
 }
-#demo {
-  display: block;
-}
 #lur {
+  font-size: 6vw;
+  margin: auto;
   display: block;
-  opacity: 0;
-  transition: 5s;
+  scale: 0;
+  transition: 1.5s;
 
+}
+.Text-big {
+  font-size: 5.5vw;
+}
+ul {
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+a {
+  display: block;
 }
 .leaves{  
   
@@ -87,13 +102,17 @@ p {
   filter: brightness(40%);
   scale: 1.25;
   animation: fadeIn 5s;
-  animation: shake 35s;
+  animation: shake 40s;
   animation-iteration-count: infinite;
 
 }
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+@keyframes popUp {
+  0% { scale: 0;}
+  100% { scale: 1;}
 }
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -125,12 +144,22 @@ p {
 </div>
 
 <div class="text-box"> <div class="background">
-<p id="demo"></p>
+  <ul class="ul">
+   
+<li id="demo" class="Text-big"></li>
+<li id="tgl">Hari</li>
+<li id="demo1" class="Text-big"></li>
+<li id="tgl1">Jam</li>
+<li id="demo2" class="Text-big"></li>
+<li id="tgl2">Menit</li>
+<li id="demo3" class="Text-big"></li>
+<li id="tgl3">Detik</li>
+</ul>
 <p id="lur"></p>
 </div></div>
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 1, 2023  00:00:00").getTime();
+var countDownDate = new Date("Dec 31, 2022  10:01:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -142,19 +171,30 @@ var x = setInterval(function() {
   var distance = countDownDate - now;
     
   // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = hours + "Jam "
-  + minutes + "Menit " + seconds + "Detik ";
+  document.getElementById("demo").innerHTML = days;
+  document.getElementById("demo1").innerHTML = hours;
+  document.getElementById("demo2").innerHTML = minutes;
+  document.getElementById("demo3").innerHTML = seconds;
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("lur").innerHTML = "Happy New Year!";
+    document.getElementById("tgl").style.display = "none";
+    document.getElementById("tgl1").style.display = "none";
+    document.getElementById("tgl2").style.display = "none";
+    document.getElementById("tgl3").style.display = "none";
     document.getElementById("demo").style.display = "none";
-    document.getElementById("lur").style.opacity = "1";
+    document.getElementById("demo1").style.display = "none";
+    document.getElementById("demo2").style.display = "none";
+    document.getElementById("demo3").style.display = "none";
+    document.getElementById("lur").style.scale = "1";
     document.getElementsByClassName("first").style.opacity = "0";
 
   };
