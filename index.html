@@ -66,7 +66,7 @@ p {
   left: -7%;
   filter: brightness(10%);
   animation: fadeIn 5s;
-  animation: shake 30s;
+  animation: shake 25s;
   animation-iteration-count: infinite;
 }
 #demo {
@@ -87,7 +87,7 @@ p {
   filter: brightness(40%);
   scale: 1.25;
   animation: fadeIn 5s;
-  animation: shake 40s;
+  animation: shake 35s;
   animation-iteration-count: infinite;
 
 }
@@ -130,7 +130,7 @@ p {
 </div></div>
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Dec 27, 2022  14:33:00").getTime();
+var countDownDate = new Date("Jan 1, 2023  00:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -142,13 +142,12 @@ var x = setInterval(function() {
   var distance = countDownDate - now;
     
   // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "Hari " + hours + "Jam "
+  document.getElementById("demo").innerHTML = hours + "Jam "
   + minutes + "Menit " + seconds + "Detik ";
   // If the count down is over, write some text 
   if (distance < 0) {
